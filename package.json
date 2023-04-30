@@ -1,0 +1,16 @@
+{
+  "name": "virtual-keyboard",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "the project in RS School course",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [
+    "virtual",
+    "keyboard"
+  ],
+  "author": "Dzmitry Salivon",
+  "license": "ISC"
+}

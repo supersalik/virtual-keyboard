@@ -1,0 +1,32 @@
+.body {
+  background-color: antiquewhite;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 50vh;
+}
+
+.header {
+  text-align: center;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.keys-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.key {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  /* text-align: center; */
+}
