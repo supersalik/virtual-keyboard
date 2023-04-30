@@ -54,7 +54,9 @@ for (let i = 0; i < keys.length; i++) {
     //   console.log("lang=en");
     const current = document.querySelector(`.keys-line${i}`);
     key;
-    key.innerText = keys[i][j].nameShift;
+    if (keys[i][j].type === "letter")
+      key.innerText = keys[i][j].name.toUpperCase();
+    else key.innerText = keys[i][j].name;
     // }
     console.log(keys[i][j].nameShift);
     current.appendChild(key.cloneNode(true));
