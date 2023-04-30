@@ -2,6 +2,8 @@
 
 import { keys } from "./keys.js";
 
+console.log(keys);
+
 const body = document.querySelector("body");
 
 //wrapper
@@ -17,12 +19,12 @@ wrapper.appendChild(header);
 
 //textarae
 const textArea = document.createElement("textarea");
-textArea.disabled = "disabled";
 textArea.rows = "5";
 textArea.cols = "50";
+textArea.readonly = "true";
 textArea.classList.add("textarea");
 wrapper.appendChild(textArea);
-
+let cursorPosition = document.querySelector(".textarea").selectionStart;
 // keyboard
 const keyboard = document.createElement("div");
 keyboard.classList.add("keyboard");
@@ -59,6 +61,7 @@ for (let i = 0; i < keys.length; i++) {
     const allKeys = document.querySelectorAll(".key");
     const currentKey = [...allKeys].at(-1);
     console.log([...allKeys].at(-1));
+
     currentKey.addEventListener("click", function () {
       let textaraeText = textArea.value;
       console.log(textaraeText);
@@ -69,12 +72,29 @@ for (let i = 0; i < keys.length; i++) {
   }
 }
 
+console.log(cursorPosition);
+
 document.addEventListener("keydown", function (event) {
+  event.preventDefault();
   console.log(event.code);
-  let keyCode = event.code.slice(-1);
+  let keyCode = event.code;
+  // if (event.code.slice(-1) === /^[A-Z0-9]$/) {
+
+  // console.log(event.code.slice(-1) === /^[A-Z0-9]$/);
   let textaraeText = textArea.value;
-  console.log(textaraeText);
-  textaraeText = textaraeText + keyCode;
-  console.log(textaraeText);
+
+  if (keyCode === "Space") {
+    textaraeText = textaraeText + " ";
+  } else if (keyCode === "Backspace") {
+    textaraeText = textaraeText.slice(0, -1);
+  } else if (keyCode === "Delete") {
+    textaraeText = textaraeText.slice(0, -1);
+  } else {
+    textaraeText = textaraeText + keyCode.slice(-1).toLocaleLowerCase();
+    cursorPosition++;
+  }
+
   textArea.innerText = textaraeText;
+  console.log(cursorPosition);
+  // }
 });
