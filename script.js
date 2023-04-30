@@ -2,10 +2,6 @@
 
 import { keys } from "./keys.js";
 
-console.log("heloo");
-
-console.log(keys);
-
 const body = document.querySelector("body");
 
 //wrapper
@@ -21,6 +17,7 @@ wrapper.appendChild(header);
 
 //textarae
 const textArea = document.createElement("textarea");
+textArea.disabled = "disabled";
 textArea.rows = "5";
 textArea.cols = "50";
 textArea.classList.add("textarea");
@@ -31,17 +28,21 @@ const keyboard = document.createElement("div");
 keyboard.classList.add("keyboard");
 wrapper.appendChild(keyboard);
 
-// keyboard
+// keysline
 const keysLine = document.createElement("div");
-keysLine.classList.add("keys-line");
+keysLine.classList.add(`keys-line`);
 
-const key = document.createElement("div");
+//key
+const key = document.createElement("button");
 key.classList.add("key");
 
 let lang;
 
 for (let i = 0; i < keys.length; i++) {
+  keysLine;
+  keysLine.classList.add(`keys-line${i}`);
   keyboard.appendChild(keysLine.cloneNode(true));
+  console.log(keyboard);
   for (let j = 0; j < keys[i].length; j++) {
     // console.log("i=", i, " j=", j);
     // if (lang === "ru") {
@@ -49,9 +50,31 @@ for (let i = 0; i < keys.length; i++) {
     //   key.innerText = keys[i][j].nameRuShift;
     // } else {
     //   console.log("lang=en");
+    const current = document.querySelector(`.keys-line${i}`);
+    key;
     key.innerText = keys[i][j].nameShift;
     // }
     console.log(keys[i][j].nameShift);
-    keysLine.appendChild(key.cloneNode(true));
+    current.appendChild(key.cloneNode(true));
+    const allKeys = document.querySelectorAll(".key");
+    const currentKey = [...allKeys].at(-1);
+    console.log([...allKeys].at(-1));
+    currentKey.addEventListener("click", function () {
+      let textaraeText = textArea.value;
+      console.log(textaraeText);
+      textaraeText = textaraeText + currentKey.innerText;
+      console.log(textaraeText);
+      textArea.innerText = textaraeText;
+    });
   }
 }
+
+document.addEventListener("keydown", function (event) {
+  console.log(event.code);
+  let keyCode = event.code.slice(-1);
+  let textaraeText = textArea.value;
+  console.log(textaraeText);
+  textaraeText = textaraeText + keyCode;
+  console.log(textaraeText);
+  textArea.innerText = textaraeText;
+});

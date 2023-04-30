@@ -14,11 +14,13 @@
 .keyboard {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .keys-line {
   display: flex;
   flex-direction: row;
+  gap: 5px;
 }
 
 .key {
