@@ -1,10 +1,12 @@
 .body {
   background-color: antiquewhite;
+  width: 670px;
+  margin: 0 auto;
 }
 
 .wrapper {
   margin: 0 auto;
-  width: 70%;
+  width: auto;
 }
 
 .header {
@@ -26,9 +28,21 @@
 .key {
   width: 40px;
   height: 40px;
-  display: flex;
+  display: block;
+  border-radius: 3px;
   justify-content: center;
   align-items: center;
   background-color: grey;
   /* text-align: center; */
+}
+
+.key:active {
+  background-color: darkgreen;
+}
+
+.big {
+  width: 85px;
+}
+.space {
+  width: 310px;
 }

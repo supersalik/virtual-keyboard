@@ -20,7 +20,7 @@ wrapper.appendChild(header);
 //textarae
 const textArea = document.createElement("textarea");
 textArea.rows = "5";
-textArea.cols = "50";
+textArea.cols = "83";
 textArea.readonly = "true";
 textArea.classList.add("textarea");
 wrapper.appendChild(textArea);
@@ -58,10 +58,17 @@ for (let i = 0; i < keys.length; i++) {
       key.innerText = keys[i][j].name.toUpperCase();
     else key.innerText = keys[i][j].name;
     // }
-    console.log(keys[i][j].nameShift);
+    // if (keys[i][j].type!=="big"||keys[i][j].type!=="space") key.classList.add("key");
+    console.log(keys[i][j].size === "big", keys[i][j].name);
+
     current.appendChild(key.cloneNode(true));
+
     const allKeys = document.querySelectorAll(".key");
     const currentKey = [...allKeys].at(-1);
+
+    if (keys[i][j].size === "big") currentKey.classList.add("big");
+    if (keys[i][j].size === "space") currentKey.classList.add("space");
+
     console.log([...allKeys].at(-1));
 
     currentKey.addEventListener("click", function () {
