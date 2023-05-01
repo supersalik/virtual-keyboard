@@ -9,7 +9,8 @@
   width: auto;
 }
 
-.header {
+.header,
+.footer {
   text-align: center;
 }
 
@@ -19,7 +20,11 @@
   gap: 5px;
 }
 
-.keys-line {
+.keys-line0,
+.keys-line1,
+.keys-line2,
+.keys-line3,
+.keys-line4 {
   display: flex;
   flex-direction: row;
   gap: 5px;
@@ -36,8 +41,8 @@
   /* text-align: center; */
 }
 
-.key:active {
-  background-color: darkgreen;
+.key:hover {
+  background-color: rgb(4, 85, 4);
 }
 
 .big {
@@ -45,4 +50,15 @@
 }
 .space {
   width: 310px;
+}
+
+.act,
+.key:active {
+  background-color: darkgreen;
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+.footer {
+  margin-top: 20px;
 }
