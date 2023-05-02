@@ -1,0 +1,23 @@
+{
+  "name": "virtual-keyboard",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "the project in RS School course",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [
+    "virtual",
+    "keyboard"
+  ],
+  "author": "Dzmitry Salivon",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1"
+  }
+}
